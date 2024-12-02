@@ -8,7 +8,7 @@ safe_reports = 0
 
 def get_gradual_increase_and_decrease(report):
     """
-    Returns the number of gradual increases and decreases
+    Returns the number of gradual increases and decreases in the report
     """
 
     gradual_increases = 0
@@ -44,8 +44,9 @@ for report in reports:
 
     safe_permutation = 0
     for i in range(len(report)):
-        new_report = report.copy()
-        new_report.pop(i)
+        new_report = report[:i] + report[i + 1 :]
+        # new_report = report.copy()
+        # new_report.pop(i)
         gradual_increases, gradual_decreases = get_gradual_increase_and_decrease(
             new_report
         )
