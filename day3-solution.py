@@ -18,12 +18,11 @@ def get_total(txt):
     listed_results = [
         re.search(r"[0-9]+,[0-9]+", _).group().split(",") for _ in search_results
     ]
-    # multiple the search results together e.g. 106704
+    # multiply the search results together e.g. 106704
     multipled_results = [
         int(listed_result[0]) * int(listed_result[1])
         for listed_result in listed_results
     ]
-    # sum the results for this line and add to the total
     return sum(multipled_results)
 
 
