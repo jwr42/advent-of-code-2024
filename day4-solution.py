@@ -44,7 +44,7 @@ for row in range(len(array[0]) - 3):
                 )
 
 # remove duplicates from the list and return total matches
-print(f"Total matches: {len(set(match_coords))}")
+print(f"Part 1 total matches: {len(set(match_coords))}")
 
 # Puzzle 2
 
@@ -80,4 +80,4 @@ for row in range(len(array[0]) - 2):
                 )
 
 # remove duplicates from the list and return total matches
-print(f"Total matches: {len(set(match_coords))}")
+print(f"Part 2 total matches: {len(set(match_coords))}")
