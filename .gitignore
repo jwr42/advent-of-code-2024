@@ -11,3 +11,6 @@ wheels/
 
 # Input data for the puzzles
 *.txt
+
+# MacOS things
+.DS_Store
