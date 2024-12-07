@@ -1,15 +1,13 @@
+import numpy as np
+from tqdm import tqdm
+
 grid = open("day6-input.txt").readlines()
 grid = [list(line.strip()) for line in grid]
-
-print(f"Grid size: {len(grid), len(grid[0])}")
-
-directions = ["up", "right", "down", "left"]
 
 # initial state of the guard
 guard_pos = [49, 39]
 guard_dir = "up"
-
-print(f"Start: Guard is at {guard_pos[0]+1,guard_pos[1]+1}, facing {guard_dir}")
+print(f"Guard is at {guard_pos[0]+1,guard_pos[1]+1}, facing {guard_dir}")
 
 
 def off_grid_check(guard_pos, guard_dir, grid):
@@ -82,13 +80,8 @@ while not off_grid_check(guard_pos, guard_dir, grid):
 # add final position to the list
 guard_pos_log.append(guard_pos)
 
-
-import numpy as np
-
 result = len(np.unique(np.array(guard_pos_log), axis=0))
-
-
-print(result)
+print(f"Part 1 solution: {result}")
 
 # Part 2
 
@@ -120,8 +113,6 @@ for i in range(len(grid)):
             new_grid[i][j] = "#"
             grids.append(new_grid)
 
-from tqdm import tqdm
-
 count = 0
 for grid in tqdm(grids):
     guard_pos = [49, 39]
@@ -129,4 +120,4 @@ for grid in tqdm(grids):
     if loop_check(guard_pos, guard_dir, grid):
         count += 1
 
-print(count)
+print(f"Part 2 solution: {count}")
