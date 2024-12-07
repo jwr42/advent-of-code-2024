@@ -98,13 +98,15 @@ def loop_check(guard_pos, guard_dir, grid):
     while not off_grid_check(guard_pos, guard_dir, grid):
         if obstruction_check(guard_pos, guard_dir, grid):
             guard_dir = change_direction(guard_dir)
-        guard_state = f"Guard is at {guard_pos[0]+1,guard_pos[1]+1}, facing {guard_dir}"
-        if guard_state in guard_state_log:
-            return True
-        guard_state_log.append(guard_state)
-        # move to new position
-        guard_pos = move_guard(guard_pos, guard_dir, grid)
-
+        else:  # only move guard once pointing in correct direction!
+            guard_state = (
+                f"Guard is at {guard_pos[0]+1,guard_pos[1]+1}, facing {guard_dir}"
+            )
+            if guard_state in guard_state_log:
+                return True
+            guard_state_log.append(guard_state)
+            # move to new position
+            guard_pos = move_guard(guard_pos, guard_dir, grid)
     return False
 
 
