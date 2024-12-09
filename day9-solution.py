@@ -1,3 +1,4 @@
+# import the puzzle input file
 line = open("day9-input.txt").readlines()
 line = list(line[0].strip())
 
@@ -48,4 +49,5 @@ checksum = 0
 for i in range(len(disk)):
     if disk[i] != ".":
         checksum += i * int(disk[i])
+
 print(checksum)
